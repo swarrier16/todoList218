@@ -1,30 +1,41 @@
 <?php
-if( $_POST )
-{
-$con = mysql_connect("localhost","root","");
 
-if (!$con)
-{
-    die('Could not connect: ' . mysql_error());
+$host="localhost"; // Host name 
+$username="root"; // Mysql username 
+$password=""; // Mysql password 
+$db_name="ssw7"; // Database name 
+$tbl_name="user"; // Table name 
+
+// Connect to server and select database.
+mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
+mysql_select_db("$db_name")or die("cannot select DB");
+
+// Get values from form 
+$fname=$_POST['fname'];
+$lname=$_POST['lname'];
+$password=$_POST['password'];
+$email=$_POST['email'];
+$phone=$_POST['phone'];
+$birthday=$_POST['birthday'];
+$gender=$_POST['gender'];
+
+// Insert data into mysql 
+$sql="INSERT INTO $tbl_name(fname, lname, email, password, phone, birthday, gender)VALUES('$fname', '$lname', '$email', '$password', '$phone', '$birthday', '$gender')";
+$result=mysql_query($sql);
+
+// if successfully insert data into database, displays message "Successful". 
+if($result){
+echo "Successful";
+echo "<BR>";
+echo "<a href='insert.php'>Back to main page</a>";
 }
 
-mysql_select_db("ssw7", $con);
-
-
-$insert_query = "insert into user(fname, lname, email, phone, birthday, gender)
-		 values (
-            '".$_POST['fname']."',
-            '".$_POST['lname']."',
-            '".$_POST['email']."'),
-            '".$_POST['phone']."',
-            '".$_POST['birthday']."'),
-            '".$_POST['gender']."')"
-            ;
-
-mysql_query($insert_query);
-
-
-
-mysql_close($con);
+else {
+echo "ERROR";
 }
+?> 
+
+<?php 
+// close connection 
+mysql_close();
 ?>

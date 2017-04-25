@@ -31,7 +31,6 @@
 
   <!-- Favicons-->
   <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
-  
   <!-- Favicons-->
   <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
   <!-- For iPhone -->
@@ -58,46 +57,23 @@
 
 <body class="light-blue lighten-2">
   
-
-  <div id="login-page" class="row">
-    <div class="col s12 z-depth-4 card-panel">
-      <form class="login-form" method="POST" action="process.php">
-        <div class="row">
-          <div class="input-field col s12 center">
-            <p class="center login-form-text">Sign In</p>
+  <h2> To complete:</h2>
+  <div class="row">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Card Title</span>
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+              <a href="#">This is a link</a>
+            </div>
           </div>
         </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-          	<i class="material-icons prefix">perm_identity</i>            
-            <input placeholder="Email" id="email" type="text">
-          </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12"> 
-          	<i class="material-icons prefix">lock_outline</i>           
-            <input placeholder="Password" id="password" type="password">
-            
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="input-field col s12">
-            <a href="todo.php" class="btn waves-effect waves-light col s12">Login</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a href="register.php">Register Now!</a></p>
-          </div>
-          <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small"><a href="page-forgot-password.html">Forgot password ?</a></p>
-          </div>          
-        </div>
-
-      </form>
-    </div>
-  </div>
+      </div>
+  
 
 
 
