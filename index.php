@@ -2,23 +2,18 @@
 
 	require_once 'database.php';
 	
-	$query = 'SELECT * FROM user';
+	$query = 'SELECT * FROM user ORDER BY id';
 	$statement = $db->prepare($query);
 	$statement->execute();
 	$categories = $statement->fetchAll();
 	$statement->closeCursor();
+
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
 
-<!--================================================================================
-	Item Name: Materialize - Material Design Admin Template
-	Version: 3.1
-	Author: GeeksLabs
-	Author URL: http://www.themeforest.net/user/geekslabs
-================================================================================ -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -61,7 +56,7 @@
 
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
-      <form class="login-form" method="POST" action="process.php">
+      <form class="login-form" method="POST" action="login.php">
         <div class="row">
           <div class="input-field col s12 center">
             <p class="center login-form-text">Sign In</p>
@@ -70,20 +65,20 @@
         <div class="row margin">
           <div class="input-field col s12">
           	<i class="material-icons prefix">perm_identity</i>            
-            <input placeholder="Email" id="email" type="text">
+            <input placeholder="Email" id="email" type="text" name ="email" value ="">
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12"> 
           	<i class="material-icons prefix">lock_outline</i>           
-            <input placeholder="Password" id="password" type="password">
+            <input placeholder="Password" id="password" name ="password" value="" type="password">
             
           </div>
         </div>
         
         <div class="row">
           <div class="input-field col s12">
-            <a href="todo.php" class="btn waves-effect waves-light col s12">Login</a>
+            <a href="tasks.php"><input class="btn waves-effect waves-light col s12" type="submit" value="Submit"></a> 
           </div>
         </div>
         <div class="row">
@@ -94,7 +89,7 @@
               <p class="margin right-align medium-small"><a href="page-forgot-password.html">Forgot password ?</a></p>
           </div>          
         </div>
-
+       
       </form>
     </div>
   </div>

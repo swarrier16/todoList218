@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,6 +37,7 @@
     <!-- Custome CSS-->    
     
   <link href="css/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
   <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
   <link href="js/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
@@ -45,29 +47,16 @@
 </head>
 
 <body class="light-blue lighten-2">
-  <?php
-// define variables and set to empty values
-$fname = $lname = $email = $password = $gender = $birthday = $phone = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = test_input($_POST["name"]);
-  $email = test_input($_POST["email"]);
-  $website = test_input($_POST["website"]);
-  $comment = test_input($_POST["comment"]);
-  $gender = test_input($_POST["gender"]);
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
-
+<!-- <form action="process.php" method='POST'>
+  First name:<br>
+  <input type="text" name="fname" value="Mickey"><br>
+  Last name:<br>
+  <input type="text" name="lname" value="Mouse"><br><br>
+  <input type="submit" value="Submit">
+</form> -->
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
-      <form class="login-form" action="process.php">
+      <form class="login-form" name="form1" method="POST" action="process.php">
         <div class="row">
           <div class="input-field col s12 center">
             <p class="center login-form-text">Sign Up</p>
@@ -75,56 +64,50 @@ function test_input($data) {
         </div>
         <div class="row margin">
           <div class="input-field col s12">            
-            <input placeholder="First Name" id = "fname" name="fname" type="text">
+            <input placeholder="First Name" id = "fname" name="fname" type="text" value="">
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">            
-            <input placeholder="Last Name" name="lname" type="text">
+            <input placeholder="Last Name" name="lname" type="text" value="">
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">            
-            <input placeholder="Email" id="email" type="text">
+            <input placeholder="Email" id="email" name="email" type="text" value="">
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">            
-            <input placeholder="Password" id="password" type="password">            
+            <input placeholder="Password" id="password" name="password"  type="password" value="">            
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">            
-            <input placeholder="Phone Number" id="phone" type="text">
+            <input placeholder="Phone Number" id="phone" name="phone" type="text" value="">
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">            
-            <input placeholder="Birthday (yyyy/mm/dd)" id="birthday" type="text">
+            <input placeholder ="Birthday (yyyy-mm-dd)" name="birthday" id="birthday">
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">            
-            <input placeholder="Gender" id="gender" type="text">
+            <input placeholder="Gender" id="gender" name="gender" type="text" value="">
           </div>
         </div>
-        
-        <div class="row">
-          <div class="input-field col s12">
-            <a href="process.php" class="btn waves-effect waves-light col s12">Sign Up</a>
-          </div>
-        </div>
+        <a href="tasks.php"><input class="btn waves-effect waves-light col s12" type="submit" value="Submit"></a> 
+
+        <br></br>
+         
         <div class="row">
           <div class="input-field col s6 m6 l6">
             <p class="margin medium-small"><a href="index.php">Sign In</a></p>
-          </div>
-          <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small"><a href="page-forgot-password.html">Forgot password ?</a></p>
-          </div>          
-        </div>
+          </div>         
+        </div> 
 
       </form>
-
 
     </div>
   </div>
