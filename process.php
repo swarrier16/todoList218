@@ -25,18 +25,6 @@ $gender = $_POST['gender'];
  $sql="INSERT INTO $tbl_name(fname, lname, email, password, phone, birthday, gender)VALUES('$fname', '$lname', '$email', '$password', '$phone', '$birthday', '$gender')";
  $result=mysql_query($sql);
 
-$task = $_POST['task'];
-$message = $_POST['message'];
-$startdate = $_POST['startdate'];
-$due = $_POST['due'];
-
-
-// Insert data into mysql 
-$sql="INSERT INTO tasks(task, message, startdate, due)VALUES('$task', '$message', '$startdate', '$due')";
-$result=mysql_query($sql);
-
-
-
 ?> 
 
 <?php 

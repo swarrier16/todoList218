@@ -56,32 +56,119 @@
 </head>
 
 <body>
+<?php 
+ // include 'addtask.php';
+?>
   <center>
   <nav>
+  
     <div class="nav-wrapper light-blue lighten-2 ">
-      <a href="#" class="brand-logo center">My ToDo List</a>      
+    <div class="container">
+      <a href="#" class="brand-logo center">My ToDo List</a>
+      <a href="index.php"><i style="text-align: right" class="material-icons">exit_to_app</i> </a>     
+    </div>
     </div>
   </nav>
 
+  <h4>Welcome, </h4> 
+  <?php 
+  if (isset($_POST["email"])){
+    echo  $_POST["email"];
+  }
+  else {
+    echo "(you didn't provide a name)";
+  }
+
+
+?>
+<br>
+
+
   <br></br>
+  <div class="container">
   <a href="newtask.php" class="waves-effect waves-light btn pink lighten-1"><i class="material-icons left">add_circle_outline</i>New Task</a>
-  <h4> Incomplete:</h4>
- <div class="row">
-        <div class="col s4">
-          <div class="card">
-            <div class="card-image">
-              <img src="img/img.gif">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Mark as Complete</a>
-            </div>
-          </div>
-        </div>
+  <h4 style="text-align: left"> Incomplete:</h4>
+ 
+        
+                 
+              </span>
+            <!-- </div> -->
+            
+            <?php
+              $query = 'SELECT * FROM tasks ORDER BY id';
+              $statement = $db->prepare($query);
+              $statement->execute();
+              $categories = $statement->fetchAll();
+              $statement->closeCursor();
+
+
+       foreach($categories as $id) : ?>
+
+       <p> 
+              <?php 
+                  require_once 'addtask.php';
+                  echo  $_POST["task"];?>
+              <br>
+
+                  Started: <?php
+                  echo  $_POST["startdate"];
+              ?> 
+                <br>
+                  Due: <?php
+                  echo  $_POST["due"];
+               
+              ?> 
+              <br>
+
+                  Message: <?php
+                  echo  $_POST["message"];
+               
+              ?> 
+              <br>
+              <a class="waves-effect waves-light btn  blue lighten-4">Edit</a>
+              <input class="btn waves-effect waves-light col s12 green darken-2" name="complete" type="submit" value="Complete">
+              
+
+              <a class="waves-effect waves-light btn red darken-1">Delete</a>
+
+              </p>
+            <br><br>
+   
+        <!-- <a href="?category_id= <?php  
+                  echo $category['task']; ?>">
+            <!-- <?php echo $category['due']; ?> -->
+        <!-- </a> -->
+   
+    <?php endforeach; ?>
+
+              <!-- //echo $categories; -->
+            
+              <!-- <p> 
+
+                  Started: <?php
+                  echo  $_POST["startdate"];
+              ?> 
+                <br>
+                  Due: <?php
+                  echo  $_POST["due"];
+               
+              ?> 
+              <br>
+
+                  Message: <?php
+                  echo  $_POST["message"];
+               
+              ?> 
+              <br>
+              <a class="waves-effect waves-light btn  blue lighten-4">Edit</a>
+              <input class="btn waves-effect waves-light col s12 green darken-2" name="complete" type="submit" value="Complete">
+              
+
+              <a class="waves-effect waves-light btn red darken-1">Delete</a>
+
+              </p> -->
+            <br><br>
+      <h4 style="text-align: left"> Complete:</h4>
       </div>
   
 </center>
@@ -99,6 +186,7 @@
   <script type="text/javascript" src="js/plugins/prism/prism.js"></script>
   <!--scrollbar-->
   <script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
       <!--plugins.js - Some Specific JS codes for Plugin Settings-->
     <script type="text/javascript" src="js/plugins.min.js"></script>
