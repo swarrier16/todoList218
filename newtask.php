@@ -63,27 +63,44 @@
     </div>
   </nav>
 
-  <br></br>
-  <a href="newtask.php" class="waves-effect waves-light btn pink lighten-1"><i class="material-icons left">add_circle_outline</i>New Task</a>
-  <h4> Incomplete:</h4>
- <div class="row">
-        <div class="col s4">
-          <div class="card">
-            <div class="card-image">
-              <img src="img/img.gif">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Mark as Complete</a>
-            </div>
+  <div id="login-page" class="row">
+    <div class="col s12 z-depth-4 card-panel">
+      <form class="login-form" method="POST" action="addtask.php">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <p class="center login-form-text">Add Task</p>
           </div>
         </div>
-      </div>
-  
+        <div class="row margin">
+          <div class="input-field col s12">            
+            <input placeholder="Task Name" id="task" type="text" name ="task" value ="">
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">         
+            <input placeholder="Task Description" id="message" name ="message" value="">            
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12"> 
+                    
+            <input placeholder="Start Date" id="startdate" name ="startdate" value="">
+            
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">          
+            <input placeholder="Deadline" id="deadline" name ="due" value="">
+            
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="input-field col s12">
+            <input class="btn waves-effect waves-light col s12" type="submit" value="Submit">
+          </div>
+        </div>
+          
 </center>
 
 
