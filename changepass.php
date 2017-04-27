@@ -1,10 +1,11 @@
 <?php
 
-$host="localhost"; // Host name 
-$username="root"; // Mysql username 
-$password=""; // Mysql password 
-$db_name="ssw7"; // Database name 
-$tbl_name="user"; // Table name 
+$host="sql2.njit.edu"; // Host name
+$username="ssw7"; // Mysql username
+$password="SUbO2ykc4"; // Mysql password
+$db_name="ssw7"; // Database name
+$tbl_name="user"; // Table name
+
 
 $conn = new mysqli($host, $username, $password, $db_name);
 // Check connection
