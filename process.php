@@ -25,7 +25,7 @@ $gender = $_POST['gender'];
 // Insert data into mysql 
  $sql="INSERT INTO $tbl_name(fname, lname, email, password, phone, birthday, gender)VALUES('$fname', '$lname', '$email', '$password', '$phone', '$birthday', '$gender')";
  $result=mysql_query($sql);
-
+ header("Location: tasks.php");
 ?> 
 
 <?php 
