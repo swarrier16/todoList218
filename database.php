@@ -5,15 +5,15 @@
 	
 	//$dsn = 'mysql:host=localhost;dbname=my_guitar_shop1';
 	
-	$username = 'ssw7';
-	$password = 'SUbO2ykc4';
+	$username = 'root';
+	$password = '';
 	$database = 'ssw7';
 	
 	
 	try {
         
         //$db = new PDO($dsn, $username, $password);
-        $db = new PDO("mysql:host=sql2.njit.edu;dbname=ssw7", $username, $password);
+        $db = new PDO("mysql:host=localhost;dbname=ssw7", $username, $password);
         
     } catch (PDOException $e) {
         $error_message = $e->getMessage();

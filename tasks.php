@@ -1,6 +1,7 @@
 <?php
 
 	require_once 'database.php';
+
 	
 	$query = 'SELECT * FROM user';
 	$statement = $db->prepare($query);
@@ -70,6 +71,7 @@
     </div>
   </nav>
 
+
   <h4>Welcome, </h4> 
   <?php 
   if (isset($_POST["email"])){
@@ -94,81 +96,47 @@
               </span>
             <!-- </div> -->
             
-            <?php
-              $query = 'SELECT * FROM tasks ORDER BY id';
+            
+
+             <?php 
+              
+              $query = 'SELECT * FROM `tasks` ORDER BY due ASC';
               $statement = $db->prepare($query);
               $statement->execute();
               $categories = $statement->fetchAll();
               $statement->closeCursor();
-
-
-       foreach($categories as $id) : ?>
-
-       <p> 
-              <?php 
-                  require_once 'addtask.php';
-                  echo  $_POST["task"];?>
-              <br>
-
-                  Started: <?php
-                  echo  $_POST["startdate"];
-              ?> 
-                <br>
-                  Due: <?php
-                  echo  $_POST["due"];
-               
-              ?> 
-              <br>
-
-                  Message: <?php
-                  echo  $_POST["message"];
-               
-              ?> 
-              <br>
-              <a class="waves-effect waves-light btn  blue lighten-4">Edit</a>
-              <input class="btn waves-effect waves-light col s12 green darken-2" name="complete" type="submit" value="Complete">
+             foreach($categories as $row) { ?> 
+               <div class="task">
+                  <h5><?php echo $row['task'] ?></h5> 
+                  <p>
+                       Message: <span><?php echo $row['message'] ?></span> 
+                       <br>
+                       Started: <span><?php echo $row['startdate'] ?></span> 
+                       <br>
+                       Due: <span><?php echo $row['due'] ?></span> 
+               </div> 
               
-
+               <a class="waves-effect waves-light btn  blue lighten-4">Edit</a>
+               <input class="btn waves-effect waves-light col s12 green darken-2" name="complete" type="submit" value="Complete">
               <a class="waves-effect waves-light btn red darken-1">Delete</a>
+
+              <br></br>
+                  
+              </div> 
+              <?php } ?>                     
+             
+              <br>
+             
 
               </p>
-            <br><br>
+            <br><br>          
    
-        <!-- <a href="?category_id= <?php  
-                  echo $category['task']; ?>">
-            <!-- <?php echo $category['due']; ?> -->
-        <!-- </a> -->
-   
-    <?php endforeach; ?>
 
-              <!-- //echo $categories; -->
             
-              <!-- <p> 
-
-                  Started: <?php
-                  echo  $_POST["startdate"];
-              ?> 
-                <br>
-                  Due: <?php
-                  echo  $_POST["due"];
-               
-              ?> 
-              <br>
-
-                  Message: <?php
-                  echo  $_POST["message"];
-               
-              ?> 
-              <br>
-              <a class="waves-effect waves-light btn  blue lighten-4">Edit</a>
-              <input class="btn waves-effect waves-light col s12 green darken-2" name="complete" type="submit" value="Complete">
-              
-
-              <a class="waves-effect waves-light btn red darken-1">Delete</a>
-
-              </p> -->
             <br><br>
+           
       <h4 style="text-align: left"> Complete:</h4>
+      
       </div>
   
 </center>
