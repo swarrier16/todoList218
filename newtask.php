@@ -2,18 +2,23 @@
 
 	require_once 'database.php';
 	
-	$query = 'SELECT * FROM user ORDER BY id';
+	$query = 'SELECT * FROM user';
 	$statement = $db->prepare($query);
 	$statement->execute();
 	$categories = $statement->fetchAll();
 	$statement->closeCursor();
-
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
 
+<!--================================================================================
+	Item Name: Materialize - Material Design Admin Template
+	Version: 3.1
+	Author: GeeksLabs
+	Author URL: http://www.themeforest.net/user/geekslabs
+================================================================================ -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -26,7 +31,6 @@
 
   <!-- Favicons-->
   <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
-  
   <!-- Favicons-->
   <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
   <!-- For iPhone -->
@@ -42,7 +46,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <!-- Custome CSS-->    
     
-  <link href="css/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <!-- <link href="css/page-center.css" type="text/css" rel="stylesheet" media="screen,projection"> -->
 
   <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
   <link href="js/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
@@ -51,49 +55,53 @@
   
 </head>
 
-<body class="light-blue lighten-2">
-  
+<body>
+  <center>
+  <nav>
+    <div class="nav-wrapper light-blue lighten-2 ">
+      <a href="#" class="brand-logo center">My ToDo List</a>      
+    </div>
+  </nav>
 
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
-      <form class="login-form" method="POST" action="login.php">
+      <form class="login-form" method="POST" action="addtask.php">
         <div class="row">
           <div class="input-field col s12 center">
-            <p class="center login-form-text">Sign In</p>
+            <p class="center login-form-text">Add Task</p>
           </div>
         </div>
         <div class="row margin">
-          <div class="input-field col s12">
-          	<i class="material-icons prefix">perm_identity</i>            
-            <input placeholder="Email" id="email" type="text" name ="email" value ="">
+          <div class="input-field col s12">            
+            <input placeholder="Task Name" id="task" type="text" name ="task" value ="">
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">         
+            <input placeholder="Task Description" id="message" name ="message" value="">            
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12"> 
-          	<i class="material-icons prefix">lock_outline</i>           
-            <input placeholder="Password" id="password" name ="password" value="" type="password">
+                    
+            <input placeholder="Start Date" id="startdate" name ="startdate" value="">
+            
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">          
+            <input placeholder="Deadline" id="deadline" name ="due" value="">
             
           </div>
         </div>
         
         <div class="row">
           <div class="input-field col s12">
-            <a href="tasks.php"><input class="btn waves-effect waves-light col s12" type="submit" value="Submit"></a> 
+            <input class="btn waves-effect waves-light col s12" type="submit" value="Submit">
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a href="register.php">Register Now!</a></p>
-          </div>
-          <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small"><a href="newpass.php">Forgot password ?</a></p>
-          </div>          
-        </div>
-       
-      </form>
-    </div>
-  </div>
-
+          
+</center>
 
 
   <!-- ================================================

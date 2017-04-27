@@ -56,10 +56,10 @@
 
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
-      <form class="login-form" method="POST" action="login.php">
+      <form class="login-form" method="POST" action="changepass.php">
         <div class="row">
           <div class="input-field col s12 center">
-            <p class="center login-form-text">Sign In</p>
+            <p class="center login-form-text">Change Password</p>
           </div>
         </div>
         <div class="row margin">
@@ -71,8 +71,13 @@
         <div class="row margin">
           <div class="input-field col s12"> 
           	<i class="material-icons prefix">lock_outline</i>           
-            <input placeholder="Password" id="password" name ="password" value="" type="password">
-            
+            <input placeholder="New Password" id="password" name ="password1" value="" type="password">            
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12"> 
+            <i class="material-icons prefix">lock_outline</i>           
+            <input placeholder="Confirm Password" id="password" name ="password2" value="" type="password">            
           </div>
         </div>
         
@@ -86,7 +91,7 @@
             <p class="margin medium-small"><a href="register.php">Register Now!</a></p>
           </div>
           <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small"><a href="newpass.php">Forgot password ?</a></p>
+              <p class="margin right-align medium-small"><a href="index.php">Sign In</a></p>
           </div>          
         </div>
        
