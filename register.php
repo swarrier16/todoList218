@@ -47,13 +47,7 @@
 </head>
 
 <body class="light-blue lighten-2">
-<!-- <form action="process.php" method='POST'>
-  First name:<br>
-  <input type="text" name="fname" value="Mickey"><br>
-  Last name:<br>
-  <input type="text" name="lname" value="Mouse"><br><br>
-  <input type="submit" value="Submit">
-</form> -->
+
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
       <form class="login-form" name="form1" method="POST" action="process.php">
@@ -97,7 +91,8 @@
             <input placeholder="Gender" id="gender" name="gender" type="text" value="">
           </div>
         </div>
-        <a href="tasks.php"><input class="btn waves-effect waves-light col s12" type="submit" value="Submit"></a> 
+
+        <input class="btn waves-effect waves-light col s12" type="submit" value="Submit">
 
         <br></br>
          

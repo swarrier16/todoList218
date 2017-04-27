@@ -18,20 +18,14 @@ $startdate = $_POST['startdate'];
 $due = $_POST['due'];
 
 
-
+require_once 'tasks.php';
 // Insert data into mysql 
 $sql="INSERT INTO tasks(task, message, startdate, due)VALUES('$task', '$message', '$startdate', '$due')";
-$result=mysql_query($sql);
+$result=mysql_query($sql);   
 
-include 'tasks.php';
-
-$query = 'SELECT * FROM tasks ORDER BY id';
-$statement = $db->prepare($query);
-$statement->execute();
-$categories = $statement->fetchAll();
-$statement->closeCursor();
-
-
+             
+              
+            
 
 
 ?> 
