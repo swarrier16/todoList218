@@ -78,7 +78,7 @@
     echo  $_POST["email"];
   }
   else {
-    echo "(you didn't provide a name)";
+    echo "User";
   }
 
 
