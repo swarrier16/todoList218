@@ -71,6 +71,7 @@
     </div>
   </nav>
 
+
   <h4>Welcome, </h4> 
   <?php 
   if (isset($_POST["email"])){
@@ -98,43 +99,44 @@
             
 
              <?php 
-              $query = 'SELECT * FROM tasks';
+              
+              $query = 'SELECT * FROM `tasks` ORDER BY due ASC';
               $statement = $db->prepare($query);
               $statement->execute();
               $categories = $statement->fetchAll();
               $statement->closeCursor();
              foreach($categories as $row) { ?> 
                <div class="task">
-                  <h6><?php echo $row['task'] ?></h6> 
+                  <h5><?php echo $row['task'] ?></h5> 
                   <p>
                        Message: <span><?php echo $row['message'] ?></span> 
                        <br>
                        Started: <span><?php echo $row['startdate'] ?></span> 
                        <br>
-                       Message: <span><?php echo $row['due'] ?></span> 
+                       Due: <span><?php echo $row['due'] ?></span> 
                </div> 
+              
                <a class="waves-effect waves-light btn  blue lighten-4">Edit</a>
                <input class="btn waves-effect waves-light col s12 green darken-2" name="complete" type="submit" value="Complete">
               <a class="waves-effect waves-light btn red darken-1">Delete</a>
+
+              <br></br>
                   
               </div> 
-              <?php } ?>
-
-
-
-                     
+              <?php } ?>                     
              
               <br>
              
 
               </p>
-            <br><br>
-           
+            <br><br>          
    
 
             
             <br><br>
+           
       <h4 style="text-align: left"> Complete:</h4>
+      
       </div>
   
 </center>

@@ -23,4 +23,15 @@ $checkUserpass = mysql_query("SELECT * from user WHERE password = '$password'");
 	if(mysql_num_rows($checkUserID)>=1) {
     	include 'tasks.php';
    }
+
+
+   // if(!empty($_POST)) 
+   //  { 
+   //    if(empty($_POST['email'])) 
+   //      {    
+   //        die("Please enter a email."); 
+   //      } 
+
+        
+   //  }
 ?>

@@ -12,18 +12,24 @@ mysql_connect("$host", "$username", "$password")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
 
 
+
+//session_start(); 
 $task = $_POST['task'];
 $message = $_POST['message'];
 $startdate = $_POST['startdate'];
 $due = $_POST['due'];
 
-
-require_once 'tasks.php';
 // Insert data into mysql 
 $sql="INSERT INTO tasks(task, message, startdate, due)VALUES('$task', '$message', '$startdate', '$due')";
-$result=mysql_query($sql);   
+$result=mysql_query($sql);
 
-             
+require_once 'tasks.php';
+//session_unset();
+//session_destroy(); 
+
+
+
+  
               
             
 
