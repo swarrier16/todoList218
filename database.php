@@ -5,9 +5,12 @@
 	
 	//$dsn = 'mysql:host=localhost;dbname=my_guitar_shop1';
 	
-	$username = 'root';
-	$password = '';
-	$database = 'ssw7';
+	
+	$username="ssw7"; // Mysql username
+	$password="SUbO2ykc4"; // Mysql password
+	$database="ssw7"; // Database name
+	
+
 	
 	
 	try {
