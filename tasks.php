@@ -116,12 +116,28 @@
                        <br>
                        Due: <span><?php echo $row['due'] ?></span> 
                </div> 
-              <?php echo'<td><form method = "post" action="complete.php">'; 
-               echo'<input class="btn waves-effect waves-light col s12 green darken-2" type="submit" name="complete" value="Completed">'?> 
-               <a class="waves-effect waves-light btn  blue lighten-4">Edit</a>
-              <a class="waves-effect waves-light btn red darken-1">Delete</a>
-              <?php 
-              ?>
+            
+              <!-- <a href="edit.php" class="waves-effect waves-light btn  blue lighten-4">Edit</a>  -->
+               <form  method = "post" action="complete.php"> 
+                  <input type="hidden" name="task_id" value='<?php echo $ID; ?>'>
+                  <input class="btn waves-effect waves-light col s12 green darken-2" type="submit" name="complete" value="Completed">
+                </form>
+                <form  method = "post" action="delete.php"> 
+                  <input type="hidden" name="task_id" value='<?php echo $ID; ?>'>
+                  <input class="btn waves-effect waves-light col s12 red darken-1" type="submit" name="delete" value="Delete">
+                </form>
+                <form  method = "post" action="edit.php"> 
+                  <input type="hidden" name="task_id" value='<?php echo $ID; ?>'>
+                  <input class="btn waves-effect waves-light col s12" type="submit" name="edit" value="Edit">
+                </form>
+                  
+                  
+               
+              <!-- <?php //echo'<td><form method = "post" action="complete.php">'; 
+               //echo '<input type="hidden" name="task_id" value= $ID>';
+               //echo'<input class="btn waves-effect waves-light col s12 green darken-2" type="submit" name="complete" value="Completed">'?> --> 
+              
+              
               <br></br>
                   
               </div> 
@@ -132,7 +148,6 @@
 
               </p>
             <br><br>          
-   
 
             
             <br><br>
@@ -155,18 +170,28 @@
                        Started: <span><?php echo $row['startdate'] ?></span> 
                        <br>
                        Due: <span><?php echo $row['due'] ?></span> 
+                  </p>
                </div> 
+
               
-               <a class="waves-effect waves-light btn  blue lighten-4">Edit</a>
-               <?php echo'<td><form method = "post" action="complete.php"'  . $ID. '">'; ?>
-               <input class="btn waves-effect waves-light col s12 green darken-2" name="complete" type="submit" value="Complete">
-              <a class="waves-effect waves-light btn red darken-1">Delete</a>
+                <form  method = "post" action="incomplete.php"> 
+                  <input type="hidden" name="task_id" value='<?php echo $ID; ?>'>
+                  <input class="btn waves-effect waves-light col s12 green darken-2" type="submit" name="complete" value="Incomplete">
+                </form>
+                <form  method = "post" action="delete.php"> 
+                  <input type="hidden" name="task_id" value='<?php echo $ID; ?>'>
+                  <input class="btn waves-effect waves-light col s12 red darken-1" type="submit" name="complete" value="Delete">
+                </form>
+                  <a class="waves-effect waves-light btn  blue lighten-4">Edit</a>
+                 
+               
 
               <br></br>
                   
               </div> 
               <?php } ?>                   
       </div>
+
   
 </center>
 
