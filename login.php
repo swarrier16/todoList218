@@ -21,11 +21,17 @@ $checkUserpass = mysql_query("SELECT * from user WHERE password = '$password'");
 	if((mysql_num_rows($checkUserID)>=1) && (mysql_num_rows($checkUserpass)>=1)) {
 
 	  header("Location: tasks.php");
-	} else {
-	  $message = "Username and/or Password incorrect.\\nTry again.";
+	  
+	} else if ((mysql_num_rows($checkUserID)>=1) && (mysql_num_rows($checkUserpass) == 0)) {
+	  $message = "Password is incorrect.\\nTry again.";
 	  echo "<script type='text/javascript'>alert('$message');</script>";
 	  include 'index.php';
 	}
+	else if ((mysql_num_rows($checkUserID) == 0) && (mysql_num_rows($checkUserpass) >= 1)) {
+	  $message = "Username is incorrect.\\nTry again.";
+	  echo "<script type='text/javascript'>alert('$message');</script>";
+	  include 'index.php';
+	 }
 	// if(mysql_num_rows($checkUserID)>=1) {
  //    	header("Location: tasks.php");
  //   }
