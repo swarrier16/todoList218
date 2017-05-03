@@ -1,8 +1,8 @@
 <?php
 
-$host="localhost"; // Host name 
-$username="root"; // Mysql username 
-$password=""; // Mysql password 
+$host="sql2.njit.edu"; // Host name 
+$username="ssw7"; // Mysql username 
+$password="SUbO2ykc4"; // Mysql password 
 $db_name="ssw7"; // Database name 
 $tbl_name="tasks"; // Table name 
 
