@@ -1,15 +1,15 @@
 <?php
 
-$host="localhost"; // Host name 
-$username="root"; // Mysql username 
-$password=""; // Mysql password 
+$host="sql2.njit.edu"; // Host name 
+$username="ssw7"; // Mysql username 
+$password="SUbO2ykc4"; // Mysql password 
 $db_name="ssw7"; // Database name 
-$tbl_name="user"; // Table name 
+$tbl_name="tasks"; // Table name 
 
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
 mysql_select_db("$db_name")or die("cannot select DB");
 
- $db = new PDO("mysql:host=localhost;dbname=ssw7", $username, $password);
+ $db = new PDO("mysql:host=sql2.njit.edu;dbname=ssw7", $username, $password);
  
 $email = $_POST['email'];
 $password1 = $_POST['password1'];
