@@ -1,14 +1,11 @@
 <?php
 
-$host="sql2.njit.edu"; // Host name
-$username="ssw7"; // Mysql username
-$password="SUbO2ykc4"; // Mysql password
-$db_name="ssw7"; // Database name
-$tbl_name="user"; // Table name
+$host="localhost"; // Host name 
+$username="root"; // Mysql username 
+$password=""; // Mysql password 
+$db_name="ssw7"; // Database name 
+$tbl_name="tasks"; // Table name 
 
-
-
-// Connect to server and select database.
 mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
 mysql_select_db("$db_name")or die("cannot select DB");
 
@@ -21,18 +18,21 @@ $checkUserpass = mysql_query("SELECT * from user WHERE password = '$password'");
 	    die('Query failed to execute for some reason');
 	}
 
-	if(mysql_num_rows($checkUserID)>=1) {
-    	include 'tasks.php';
-   }
+	if((mysql_num_rows($checkUserID)>=1) && (mysql_num_rows($checkUserpass)>=1)) {
+
+	  header("Location: tasks.php");
+	} else {
+	  $message = "Username and/or Password incorrect.\\nTry again.";
+	  echo "<script type='text/javascript'>alert('$message');</script>";
+	  include 'index.php';
+	}
+	// if(mysql_num_rows($checkUserID)>=1) {
+ //    	header("Location: tasks.php");
+ //   }
+ //   else{
+ //   	header("Location: index.php");
+ //   }
 
 
-   // if(!empty($_POST)) 
-   //  { 
-   //    if(empty($_POST['email'])) 
-   //      {    
-   //        die("Please enter a email."); 
-   //      } 
 
-        
-   //  }
 ?>
